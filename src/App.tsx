@@ -9,18 +9,18 @@ function App() {
   const [login, setLogin] = useState(false);
   return (
     <div className="bg-linear-to-r from-pink-900 to-slate-900 h-screen flex justify-center items-center">
-      <div className="bg-white w-4/8 h-8/12 overflow-hidden flex relative">
-        <div className="w-full h-full">
+      <div className="bg-white lg:w-4/8 lg:h-8/12 w-full h-full overflow-scroll flex md:flex-row flex-col relative">
+        <div className={`md:w-full md:h-full md:flex ${login && "hidden"}`}>
           <SignUp login={login} setLogin={setLogin} />
         </div>
-        <div className="w-full h-full">
+        <div className={`md:w-full md:h-full md:flex ${!login && "hidden"}`}>
           <SignIn login={login} setLogin={setLogin} />
         </div>
         <div
-          className={`w-1/2 h-full ${
+          className={`hidden md:flex w-1/2 h-full ${
             login ? "bg-pink-900" : "bg-slate-900"
           }  flex flex-col gap-4 items-center justify-center absolute transition-transform duration-700 ease-in-out ${
-            login ? "translate-x-full" : "translate-x-0"
+            login ? "md:translate-x-full" : "md:translate-x-0"
           }`}
         >
           {" "}
